@@ -133,9 +133,27 @@ body{
   .grid.projects{grid-template-columns:repeat(6, 1fr)}
   .project-card{grid-column:span 6}
   .nav-toggle{display:block}
-  .nav-links{position:fixed; inset:60px 0 auto 0; background:rgba(11,13,16,.95); border-bottom:1px solid var(--border);
-    transform:translateY(-120%); transition:.3s ease; padding:1rem 4%; flex-direction:column}
-  .nav-links.open{transform:translateY(0)}
+
+  /* ===== ajustes solicitados: invisível quando fechado, visível quando aberto ===== */
+  .nav-links{
+    position:fixed; inset:60px 0 auto 0; background:rgba(11,13,16,.95); border-bottom:1px solid var(--border);
+    transform:translateY(-120%); transition:.3s ease; padding:1rem 4%; flex-direction:column;
+
+    /* ADIÇÕES */
+    opacity: 0;            /* fechado: não aparece */
+    pointer-events: none;  /* fechado: não intercepta toques */
+    z-index: 998;          /* abaixo do header */
+  }
+  .nav-links.open{
+    transform:translateY(0);
+
+    /* ADIÇÕES */
+    opacity: 1;            /* aberto: aparece */
+    pointer-events: auto;  /* aberto: recebe cliques */
+  }
+
+  /* garantir header acima de tudo no mobile */
+  .site-header{ z-index: 999; }
 }
 /* =======================================================================
    🔧 Responsividade adicional (apenas ADIÇÕES, sem alterar seu estilo)
