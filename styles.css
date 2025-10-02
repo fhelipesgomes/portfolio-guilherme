@@ -137,3 +137,93 @@ body{
     transform:translateY(-120%); transition:.3s ease; padding:1rem 4%; flex-direction:column}
   .nav-links.open{transform:translateY(0)}
 }
+/* =======================================================================
+   🔧 Responsividade adicional (apenas ADIÇÕES, sem alterar seu estilo)
+   ======================================================================= */
+
+/* 👉 Larguras grandes: 3 colunas de projetos no desktop amplo */
+@media (min-width: 1100px){
+  .grid.projects{
+    grid-template-columns: repeat(12, 1fr);
+  }
+  /* Cada card ocupa 4 colunas (3 por linha) */
+  .project-card{ grid-column: span 4; }
+}
+
+/* 👉 Laptops / tablets em landscape: 2 colunas de projetos */
+@media (max-width: 1099px) and (min-width: 901px){
+  .grid.projects{
+    grid-template-columns: repeat(8, 1fr);
+  }
+  .project-card{ grid-column: span 4; } /* 2 por linha */
+}
+
+/* 👉 Tablets / mobile grande (você já tinha parte disso): 1 coluna */
+@media (max-width: 900px){
+  /* hero já quebra pra 1 coluna no seu CSS */
+  .hero h1{
+    /* dá uma reduzida suave quando a linha fica longa */
+    font-size: clamp(2rem, 6.5vw, 3rem);
+  }
+  .subtitle{
+    font-size: clamp(1rem, 2.8vw, 1.1rem);
+  }
+
+  /* grid de projetos já vira 6 fr; forçamos 1 card por linha */
+  .project-card{ grid-column: span 6; }
+
+  /* layout de duas colunas (Sobre/Contato) já está 1fr; só cuidamos de respiros */
+  .section{ padding: 3.5rem 0; }
+  .links{ flex-wrap: wrap; }
+}
+
+/* 👉 Mobile médio: ajustes finos de tipografia e espaçamento */
+@media (max-width: 640px){
+  .container{ width: min(94%, 1100px); }
+
+  .hero{ padding: 5rem 0 3.5rem; }
+  .cta{ gap: .6rem; }
+  .badges{ gap: .5rem; }
+
+  /* Projetos em 1 coluna com respiro maior entre cards */
+  .grid.projects{ gap: .9rem; }
+  .project-card .content{ padding: .9rem; }
+
+  /* Skills: mantém o rótulo e a barra, mas evita quebra feia */
+  .skill{ grid-template-columns: 120px 1fr; gap: .75rem; }
+}
+
+/* 👉 Mobile pequeno: empilha rótulo da skill acima da barra */
+@media (max-width: 480px){
+  h1{ font-size: clamp(1.9rem, 8vw, 2.4rem); }
+  .subtitle{ font-size: .98rem; }
+
+  /* Empilhar label acima da barra para caber bem */
+  .skill{
+    grid-template-columns: 1fr;
+    gap: .45rem;
+  }
+  .skill span{
+    line-height: 1.3;
+  }
+
+  /* Botões mais “tocáveis” e quebrando linha se precisar */
+  .btn{ padding: .65rem .9rem; }
+  .btn.small{ padding: .5rem .7rem; font-size: .9rem; }
+  .hero .cta{ flex-direction: row; flex-wrap: wrap; }
+
+  /* Nav: aumenta área de toque do menu hambúrguer */
+  .nav-toggle .bar{ width: 26px; height: 2px; }
+}
+
+/* 👉 Ajustes de acessibilidade/legibilidade em telas densas */
+@media (max-width: 380px){
+  .badges li{ padding: .3rem .55rem; }
+  .project-card .content{ padding: .8rem; }
+}
+
+/* 👉 Hero-art: limita altura no mobile para não empurrar demais */
+@media (max-width: 900px){
+  .hero-art{ min-height: 220px; }
+  .blob{ border-radius: 24px; }
+}
