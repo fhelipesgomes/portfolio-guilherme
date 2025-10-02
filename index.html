@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fhelipe Gomes — Portfólio</title>
+  <meta name="description" content="Portfólio — Desenvolvedor Front-end/Full-stack">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#" class="brand" aria-label="Início">
+        <svg class="logo" viewBox="0 0 64 64" aria-hidden="true">
+          <circle cx="32" cy="32" r="30" />
+          <path d="M16 40 L32 16 L48 40" />
+        </svg>
+        <span>Fhelipe<span class="accent">Gomes</span></span>
+      </a>
+      <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+      <nav class="nav-links" aria-label="Principal">
+        <a href="#sobre">Sobre</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#habilidades">Habilidades</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="home" role="banner">
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <h1><span class="hi">Olá, eu sou</span><br/>Luis Fhelipe </h1>
+        <p class="subtitle">Desenvolvedor em formação<strong>(Full-stack)</strong> focado em <strong>web</strong>,<strong>performance</strong> e <strong>UX.</strong></strong>
+        </p>
+        <div class="cta">
+          <a class="btn primary" href="#projetos">Ver projetos</a>
+          <a class="btn ghost" href="#contato">Fale comigo</a>
+        </div>
+        <ul class="badges" aria-label="Destaques">
+          <li>HTML • CSS • JS</li>
+          <li>Python • Java • C</li>
+          <li>.Net</li>
+        </ul>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="blob"></div>
+      </div>
+    </div>
+    <a class="scroll-indicator" href="#sobre" aria-label="Rolar para Sobre">⟶</a>
+  </section>
+
+  <section id="sobre" class="section">
+    <div class="container two-col">
+      <div>
+        <h2>Sobre</h2>
+        <p>Sou estudante de Engenharia de Software e Cientista de Dados com foco em criar experiências web rápidas e acessíveis e aplicar Ciência de Dados em soluções práticas. Gosto de transformar ideias em produtos funcionais, com código limpo e atenção aos detalhes.</p>
+        <p>Interesse em estágios/trainee em TI/Dev, com experiência em HTML/CSS/JS, Python, Java, C#, SQL e Power BI. Também tenho interesse  em projetos de IA aplicada.</p>
+        <div class="links">
+          <a class="btn small" href="#contato">Disponível para oportunidades</a>
+          <a class="btn small ghost" href="#" target="_blank" rel="noopener">Baixar CV (PDF)</a>
+        </div>
+      </div>
+      <aside class="card">
+        <h3>Info rápida</h3>
+        <ul class="list">
+          <li><strong>Cidade:</strong> Fortaleza-CE</li>
+          <li><strong>Graduação:</strong> UNICESUMAR (em andamento)</li>
+          <li><strong>Interesses:</strong> Desenvolvimento Web (Front-end e/ou Back-end) Full-stack, Suporte</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section id="projetos" class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>Projetos</h2>
+        <div class="filters" role="tablist" aria-label="Filtros de projetos">
+          <button class="chip active" data-filter="all" role="tab" aria-selected="true">Tudo</button>
+          <button class="chip" data-filter="web" role="tab">Web</button>
+          <button class="chip" data-filter="games" role="tab">Games</button>
+          <button class="chip" data-filter="scripts" role="tab">Scripts</button>
+        </div>
+      </div>
+
+      <div class="grid projects" id="projectsGrid" aria-live="polite">
+
+        <article class="project-card" data-tags="web">
+          <div class="thumb" style="--img:url('assets/proj1.jpg')"></div>
+          <div class="content">
+            <h3>Tela de Login</h3>
+            <p>Formulário moderno com transição entre login e cadastro.</p>
+            <div class="actions">
+              <a class="btn small" href="#" target="_blank" rel="noopener">Ver demo</a>
+              <a class="btn small ghost" href="#" target="_blank" rel="noopener">Código</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card" data-tags="web">
+          <div class="thumb" style="--img:url('assets/proj2.jpg')"></div>
+          <div class="content">
+            <h3>Landing Page CodeSpace</h3>
+            <p>Página inicial clean com artigos e dark mode.</p>
+            <div class="actions">
+              <a class="btn small" href="#" target="_blank" rel="noopener">Ver demo</a>
+              <a class="btn small ghost" href="#" target="_blank" rel="noopener">Código</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card" data-tags="scripts,games">
+          <div class="thumb" style="--img:url('assets/proj3.jpg')"></div>
+          <div class="content">
+            <h3>Animação Estrela Pixel</h3>
+            <p>Efeito visual em canvas com partículas em forma de estrela.</p>
+            <div class="actions">
+              <a class="btn small" href="#" target="_blank" rel="noopener">Ver demo</a>
+              <a class="btn small ghost" href="#" target="_blank" rel="noopener">Código</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="habilidades" class="section">
+    <div class="container">
+      <h2>Habilidades</h2>
+      <div class="skills">
+        <div class="skill"><span>HTML</span><div class="bar"><i style="width: 95%"></i></div></div>
+        <div class="skill"><span>CSS</span><div class="bar"><i style="width: 90%"></i></div></div>
+        <div class="skill"><span>JavaScript</span><div class="bar"><i style="width: 85%"></i></div></div>
+        <div class="skill"><span>Python</span><div class="bar"><i style="width: 80%"></i></div></div>
+        <div class="skill"><span>Java</span><div class="bar"><i style="width: 70%"></i></div></div>
+        <div class="skill"><span>SQL</span><div class="bar"><i style="width: 75%"></i></div></div>
+        <div class="skill"><span>Power BI</span><div class="bar"><i style="width: 75%"></i></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato" class="section">
+    <div class="container two-col">
+      <div>
+        <h2>Contato</h2>
+        <p>Curtiu o que viu? Manda uma mensagem:</p>
+        <form class="contact-form" id="contactForm" novalidate>
+          <label>Nome
+            <input type="text" name="name" placeholder="Seu nome" required />
+          </label>
+          <label>E-mail
+            <input type="email" name="email" placeholder="seuemail@exemple.com" required />
+          </label>
+          <label>Mensagem
+            <textarea name="message" rows="5" placeholder="Como posso ajudar?" required></textarea>
+          </label>
+          <button class="btn primary" type="submit">Enviar</button>
+          <p class="form-msg" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+      <aside class="card">
+        <h3>Redes</h3>
+        <ul class="social">
+          <li><a href="#" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a></li>
+          <li><a href="#" target="_blank" rel="noopener" aria-label="GitHub">GitHub</a></li>
+          <li><a href="#" target="mailto:fhelipesgomes@gmail.com" aria-label="E-mail">E-mail</a></li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Fhelipe S Gomes — Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
