@@ -54,17 +54,35 @@ const msg = document.querySelector('.form-msg');
 if(form){
   form.addEventListener('submit', (e)=>{
     e.preventDefault();
-    const data = new FormData(form);
-    const name = data.get('name')?.toString().trim();
-    const email = data.get('email')?.toString().trim();
-    const message = data.get('message')?.toString().trim();
-    if(!name || !email || !message){
-      msg.textContent = 'Preencha todos os campos.';
-      msg.style.color = '#ffb4b4';
-      return;
+
+    // Tenta pelos 'name' do FormData; se não existir, usa fallback por 'id'
+    const fd = new FormData(form);
+    const name = (fd.get('name') ?? document.getElementById('name')?.value ?? '').toString().trim();
+    const email = (fd.get('email') ?? document.getElementById('email')?.value ?? '').toString().trim();
+    const message = (fd.get('message') ?? document.getElementById('message')?.value ?? '').toString().trim();
+
+    if(msg){ msg.textContent = ''; }
+
+    // Usa placeholders se algum campo vier vazio (não bloqueia)
+    const n = name || '(sem nome)';
+    const em = email || '(sem e-mail)';
+    const ms = message || '(sem mensagem)';
+
+    const subject = encodeURIComponent('Contato via Portfólio — ' + n);
+    const body = encodeURIComponent(`Nome: ${n}\nE-mail: ${em}\n\nMensagem:\n${ms}`);
+
+    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    if (isMobile) {
+      const text = encodeURIComponent(`Olá! Me chamo ${n}. Meu e-mail é ${em}.\n\n${ms}`);
+      window.open(`https://wa.me/5585982351950?text=${text}`, '_blank');
+    } else {
+      window.location.href = `mailto:fhelipesgomes@gmail.com?subject=${subject}&body=${body}`;
     }
-    msg.textContent = 'Mensagem enviada! (mock)';
-    msg.style.color = '#a7f3d0';
-    form.reset();
+
+    // Opcional: feedback visual suave sem alterar layout
+    if(msg){
+      msg.textContent = 'Abrindo seu aplicativo de mensagem...';
+      msg.style.color = '#a7f3d0';
+    }
   });
 }

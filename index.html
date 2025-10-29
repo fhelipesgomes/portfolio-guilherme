@@ -223,3 +223,43 @@
   </script>
 </body>
 </html>
+<!-- mantém seus scripts originais -->
+<script src="script.js"></script>
+
+<!-- força o envio: e-mail (desktop) ou WhatsApp (mobile) -->
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  (function () {
+    const form = document.getElementById("contactForm");
+    const nameEl = document.getElementById("name");
+    const emailEl = document.getElementById("email");
+    const msgEl = document.getElementById("message");
+    const feedback = form.querySelector(".form-msg");
+
+    // desativa validação nativa e bloqueia outros listeners do script.js
+    form.setAttribute("novalidate", "");
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      e.stopImmediatePropagation(); // impede outros handlers de barrar
+
+      const name = (nameEl.value || "(sem nome)").trim();
+      const email = (emailEl.value || "(sem e-mail)").trim();
+      const message = (msgEl.value || "(sem mensagem)").trim();
+
+      // limpa aviso "Preencha todos os campos."
+      if (feedback) feedback.textContent = "";
+
+      const subject = encodeURIComponent("Contato via Portfólio — " + name);
+      const body = encodeURIComponent(`Nome: ${name}\nE-mail: ${email}\n\nMensagem:\n${message}`);
+
+      const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+      if (isMobile) {
+        const text = encodeURIComponent(`Olá! Me chamo ${name}. Meu e-mail é ${email}.\n\n${message}`);
+        window.open(`https://wa.me/5585982351950?text=${text}`, "_blank");
+      } else {
+        window.location.href = `mailto:fhelipesgomes@gmail.com?subject=${subject}&body=${body}`;
+      }
+    }, true); // <-- modo captura: roda ANTES dos outros listeners
+  })();
+</script>
