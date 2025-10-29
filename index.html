@@ -62,7 +62,8 @@
         <p>Interesse em estágios/trainee em TI/Dev, com experiência em HTML/CSS/JS, Python, Java, C#, SQL e Power BI. Também tenho interesse  em projetos de IA aplicada.</p>
         <div class="links">
           <a class="btn small" href="#contato">Disponível para oportunidades</a>
-          <a class="btn small ghost" href="#" target="_blank" rel="noopener">Baixar CV (PDF)</a>
+          <!-- APENAS ESTA LINHA FOI ALTERADA -->
+          <a class="btn small ghost" href="assets/CurricuLuisFelipeSilvaGomes01.pdf" download target="_blank" rel="noopener">Baixar CV (PDF)</a>
         </div>
       </div>
       <aside class="card">
@@ -102,11 +103,23 @@
           </div>
         </article>
 
-        <article class="project-card" data-tags="web">
-          <div class="thumb" style="--img:url('assets/proj2.jpg')"></div>
+         <article class="project-card" data-tags="web">
+          <div class="thumb" style="--img:url('assets/proj4.png')"></div>
           <div class="content">
-            <h3>Landing Page CodeSpace</h3>
-            <p>Página inicial clean com artigos e dark mode.</p>
+            <h3>Site de vendas de uma IA para o ENEM.</h3>
+            <p>Site moderno feito usando JS, HTML e CSS.</p>
+            <div class="actions">
+              <a class="btn small" href="#" target="_blank" rel="noopener">Ver demo</a>
+              <a class="btn small ghost" href="#" target="_blank" rel="noopener">Código</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card" data-tags="web">
+          <div class="thumb" style="--img:url('assets/proj2.png')"></div>
+          <div class="content">
+            <h3>Site delivery para uma lanchonete.</h3>
+            <p>Página de vendas com botões interativos, gerador de pix e automação que envia o pedido direto pro WhatsApp.</p>
             <div class="actions">
               <a class="btn small" href="#" target="_blank" rel="noopener">Ver demo</a>
               <a class="btn small ghost" href="#" target="_blank" rel="noopener">Código</a>
@@ -150,15 +163,16 @@
       <div>
         <h2>Contato</h2>
         <p>Curtiu o que viu? Manda uma mensagem:</p>
+        <!-- novalidate desativa as mensagens de “preencha este campo” -->
         <form class="contact-form" id="contactForm" novalidate>
           <label>Nome
-            <input type="text" name="name" placeholder="Seu nome" required />
+            <input type="text" id="name" placeholder="Seu nome" required />
           </label>
           <label>E-mail
-            <input type="email" name="email" placeholder="seuemail@exemple.com" required />
+            <input type="email" id="email" placeholder="seuemail@exemplo.com" required />
           </label>
           <label>Mensagem
-            <textarea name="message" rows="5" placeholder="Como posso ajudar?" required></textarea>
+            <textarea id="message" rows="5" placeholder="Como posso ajudar?" required></textarea>
           </label>
           <button class="btn primary" type="submit">Enviar</button>
           <p class="form-msg" role="status" aria-live="polite"></p>
@@ -167,9 +181,9 @@
       <aside class="card">
         <h3>Redes</h3>
         <ul class="social">
-          <li><a href="#" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a></li>
-          <li><a href="#" target="_blank" rel="noopener" aria-label="GitHub">GitHub</a></li>
-          <li><a href="#" target="mailto:fhelipesgomes@gmail.com" aria-label="E-mail">E-mail</a></li>
+          <li><a href="https://www.linkedin.com/in/luisfelipesgomes/" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a></li>
+          <li><a href="https://github.com/fhelipesgomes" target="_blank" rel="noopener" aria-label="GitHub">GitHub</a></li>
+          <li><a href="mailto:fhelipesgomes@gmail.com" aria-label="E-mail">E-mail</a></li>
         </ul>
       </aside>
     </div>
@@ -181,6 +195,31 @@
     </div>
   </footer>
 
+  <!-- mantém os scripts originais -->
   <script src="script.js"></script>
+
+  <!-- script de envio para e-mail (desktop) ou WhatsApp (celular) -->
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    document.getElementById("contactForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const name = document.getElementById("name").value || "(sem nome)";
+      const email = document.getElementById("email").value || "(sem e-mail)";
+      const message = document.getElementById("message").value || "(sem mensagem)";
+
+      const subject = encodeURIComponent("Contato via Portfólio — " + name);
+      const body = encodeURIComponent(`Nome: ${name}\nE-mail: ${email}\n\nMensagem:\n${message}`);
+
+      const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+      if (isMobile) {
+        const text = encodeURIComponent(`Olá! Me chamo ${name}. Meu e-mail é ${email}.\n\n${message}`);
+        window.open(`https://wa.me/5585982351950?text=${text}`, "_blank");
+      } else {
+        window.location.href = `mailto:fhelipesgomes@gmail.com?subject=${subject}&body=${body}`;
+      }
+    });
+  </script>
 </body>
 </html>

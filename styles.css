@@ -245,3 +245,41 @@ body{
   .hero-art{ min-height: 220px; }
   .blob{ border-radius: 24px; }
 }
+/* --- Correção do vazamento na card "Redes" --- */
+.card {
+  overflow: hidden;              /* impede o conteúdo de vazar */
+  box-sizing: border-box;        /* garante cálculo correto de largura */
+  max-width: 100%;
+}
+
+.card .social {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;                 /* mantém cada item em linha */
+  grid-template-columns: 1fr;
+  gap: .5rem;
+}
+
+.card .social li {
+  min-width: 0;                  /* permite o ellipsis funcionar */
+}
+
+.card .social a {
+  display: block;
+  max-width: 100%;
+  padding: .5rem .75rem;         /* toque suave sem alterar o visual */
+  border-radius: 8px;
+  text-decoration: none;
+  overflow: hidden;              /* corta excesso de texto */
+  text-overflow: ellipsis;       /* “...” em links longos */
+  white-space: nowrap;           /* evita quebra feia */
+  overflow-wrap: anywhere;       /* se precisar, permite quebrar */
+}
+
+/* Se a coluna estiver empurrando o layout, garanta que a grid aceite shrink */
+.two-col {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px; /* a coluna de conteúdo pode encolher */
+  gap: 2rem;
+}
