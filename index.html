@@ -1,28 +1,31 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Fhelipe Gomes — Portfólio</title>
-  <meta name="description" content="Portfólio — Desenvolvedor Front-end/Full-stack">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
+  <meta name="description" content="Portfólio — Desenvolvedor Full-stack">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
+  <div id="scroll-progress"></div>
+  <canvas id="particles"></canvas>
+
   <header class="site-header">
     <div class="container nav">
-      <a href="#" class="brand" aria-label="Início">
-        <svg class="logo" viewBox="0 0 64 64" aria-hidden="true">
-          <circle cx="32" cy="32" r="30" />
-          <path d="M16 40 L32 16 L48 40" />
+      <a href="#home" class="brand">
+        <svg class="logo" viewBox="0 0 64 64">
+          <circle cx="32" cy="32" r="30"/>
+          <path d="M16 40 L32 16 L48 40"/>
         </svg>
         <span>Fhelipe<span class="accent">Gomes</span></span>
       </a>
-      <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false">
+      <button class="nav-toggle">
         <span class="bar"></span><span class="bar"></span><span class="bar"></span>
       </button>
-      <nav class="nav-links" aria-label="Principal">
+      <nav class="nav-links">
         <a href="#sobre">Sobre</a>
         <a href="#projetos">Projetos</a>
         <a href="#habilidades">Habilidades</a>
@@ -31,86 +34,84 @@
     </div>
   </header>
 
-  <section class="hero" id="home" role="banner">
+  <section class="hero reveal" id="home">
     <div class="container hero-grid">
       <div class="hero-text">
-        <h1><span class="hi">Olá, eu sou</span><br/>Luis Fhelipe </h1>
-        <p class="subtitle">Desenvolvedor em formação<strong>(Full-stack)</strong> focado em <strong>web</strong>,<strong>performance</strong> e <strong>UX.</strong></strong>
-        </p>
+        <h1><span class="hi">Olá, eu sou</span><br>Luis Fhelipe</h1>
+        <p class="subtitle">Eu construo interfaces modernas, rápidas e inteligentes.</p>
         <div class="cta">
-          <a class="btn primary" href="#projetos">Ver projetos</a>
-          <a class="btn ghost" href="#contato">Fale comigo</a>
+          <a class="btn primary" href="#projetos">Ver Projetos</a>
+          <a class="btn ghost" href="assets/CurricuLuisFelipeSilvaGomes01.pdf" download>Baixar CV</a>
+          <a class="btn small" href="#contato">Contato</a>
         </div>
-        <ul class="badges" aria-label="Destaques">
+        <ul class="badges">
           <li>HTML • CSS • JS</li>
           <li>Python • Java • C</li>
-          <li>.Net</li>
+          <li>.NET • SQL</li>
         </ul>
       </div>
-      <div class="hero-art" aria-hidden="true">
+
+      <div class="hero-art">
         <div class="blob"></div>
       </div>
     </div>
-    <a class="scroll-indicator" href="#sobre" aria-label="Rolar para Sobre">⟶</a>
   </section>
 
-  <section id="sobre" class="section">
+  <section id="sobre" class="section reveal">
     <div class="container two-col">
       <div>
-        <h2>Sobre</h2>
-        <p>Sou estudante de Engenharia de Software e Cientista de Dados com foco em criar experiências web rápidas e acessíveis e aplicar Ciência de Dados em soluções práticas. Gosto de transformar ideias em produtos funcionais, com código limpo e atenção aos detalhes.</p>
-        <p>Interesse em estágios/trainee em TI/Dev, com experiência em HTML/CSS/JS, Python, Java, C#, SQL e Power BI. Também tenho interesse  em projetos de IA aplicada.</p>
+        <h2>Sobre mim</h2>
+        <p>Sou um desenvolvedor focado em criar interfaces modernas, rápidas e funcionais. Tenho experiência em JavaScript, Python, Java, C#, APIs, Godot e projetos reais. Meu foco é transformar desafios em produtos digitais de alto impacto.</p>
+        <p>Busco oportunidades como estagiário/trainee em desenvolvimento Full-stack.</p>
         <div class="links">
           <a class="btn small" href="#contato">Disponível para oportunidades</a>
-          <!-- APENAS ESTA LINHA FOI ALTERADA -->
-          <a class="btn small ghost" href="assets/CurricuLuisFelipeSilvaGomes01.pdf" download target="_blank" rel="noopener">Baixar CV (PDF)</a>
         </div>
       </div>
       <aside class="card">
         <h3>Info rápida</h3>
         <ul class="list">
           <li><strong>Cidade:</strong> Fortaleza-CE</li>
-          <li><strong>Graduação:</strong> UNICESUMAR (em andamento)</li>
-          <li><strong>Interesses:</strong> Desenvolvimento Web (Front-end e/ou Back-end) Full-stack, Suporte</li>
+          <li><strong>Graduação:</strong> Engenharia de Software</li>
+          <li><strong>Interesses:</strong> Web, Back-end, Sistemas, IA</li>
         </ul>
       </aside>
     </div>
   </section>
 
-  <section id="projetos" class="section">
+  <section id="projetos" class="section reveal">
     <div class="container">
       <div class="section-head">
         <h2>Projetos</h2>
-        <div class="filters" role="tablist" aria-label="Filtros de projetos">
-          <button class="chip active" data-filter="all" role="tab" aria-selected="true">Tudo</button>
-          <button class="chip" data-filter="web" role="tab">Web</button>
-          <button class="chip" data-filter="games" role="tab">Games</button>
-          <button class="chip" data-filter="scripts" role="tab">Scripts</button>
+        <div class="filters">
+          <button class="chip active" data-filter="all">Tudo</button>
+          <button class="chip" data-filter="web">Web</button>
+          <button class="chip" data-filter="games">Games</button>
+          <button class="chip" data-filter="scripts">Scripts</button>
         </div>
       </div>
 
-      <div class="grid projects" id="projectsGrid" aria-live="polite">
+      <div class="grid projects" id="projectsGrid">
 
         <article class="project-card" data-tags="web">
           <div class="thumb" style="--img:url('assets/proj1.jpg')"></div>
           <div class="content">
             <h3>Tela de Login</h3>
-            <p>Formulário moderno com transição entre login e cadastro.</p>
+            <p>Formulário animado com troca entre login e cadastro.</p>
             <div class="actions">
-              <a class="btn small" href="#" target="_blank" rel="noopener">Ver demo</a>
-              <a class="btn small ghost" href="#" target="_blank" rel="noopener">Código</a>
+              <a class="btn small" href="#">Demo</a>
+              <a class="btn small ghost" href="#">Código</a>
             </div>
           </div>
         </article>
 
-         <article class="project-card" data-tags="web">
+        <article class="project-card" data-tags="web">
           <div class="thumb" style="--img:url('assets/proj4.png')"></div>
           <div class="content">
-            <h3>Site de vendas de uma IA para o ENEM.</h3>
-            <p>Site moderno feito usando JS, HTML e CSS.</p>
+            <h3>IA ENEM</h3>
+            <p>Site de venda para IA de estudos feita em JS/HTML/CSS.</p>
             <div class="actions">
-              <a class="btn small" href="#" target="_blank" rel="noopener">Ver demo</a>
-              <a class="btn small ghost" href="#" target="_blank" rel="noopener">Código</a>
+              <a class="btn small" href="#">Demo</a>
+              <a class="btn small ghost" href="#">Código</a>
             </div>
           </div>
         </article>
@@ -118,47 +119,23 @@
         <article class="project-card" data-tags="scripts,web">
           <div class="thumb" style="--img:url('assets/proj5.png')"></div>
           <div class="content">
-            <h3>Site de Vendas Para Insanitty Suplementos</h3>
-            <p>Site desenvolvido para vendas de produtos de treino/academia.</p>
+            <h3>Insanitty Suplementos</h3>
+            <p>Site de vendas com automação de pedido para WhatsApp.</p>
             <div class="actions">
-              <a class="btn small" href="#" target="_blank" rel="noopener">Ver demo</a>
-              <a class="btn small ghost" href="#" target="_blank" rel="noopener">Código</a>
+              <a class="btn small" href="#">Demo</a>
+              <a class="btn small ghost" href="#">Código</a>
             </div>
           </div>
         </article>
 
-         <article class="project-card" data-tags="scripts,web">
-          <div class="thumb" style="--img:url('assets/proj6.png')"></div>
-          <div class="content">
-            <h3>Site para uma Startup</h3>
-            <p>site feito para uma startup de desenvolvimento de sites e sistemas.</p>
-            <div class="actions">
-              <a class="btn small" href="#" target="_blank" rel="noopener">Ver demo</a>
-              <a class="btn small ghost" href="#" target="_blank" rel="noopener">Código</a>
-            </div>
-          </div>
-        </article>
-
-         <article class="project-card" data-tags="web">
+        <article class="project-card" data-tags="web">
           <div class="thumb" style="--img:url('assets/proj2.png')"></div>
           <div class="content">
-            <h3>Site delivery para uma lanchonete.</h3>
-            <p>Página de vendas com botões interativos, gerador de pix e automação que envia o pedido direto pro WhatsApp.</p>
+            <h3>Delivery</h3>
+            <p>Geração de PIX e envio automático do pedido.</p>
             <div class="actions">
-              <a class="btn small" href="#" target="_blank" rel="noopener">Ver demo</a>
-              <a class="btn small ghost" href="#" target="_blank" rel="noopener">Código</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-card" data-tags="scripts,games">
-          <div class="thumb" style="--img:url('assets/proj3.jpg')"></div>
-          <div class="content">
-            <h3>Animação de Estrela Pixel</h3>
-            <p>Efeito visual em canvas com partículas em forma de estrela.</p>
-            <div class="actions">
-              <a class="btn small" href="#" target="_blank" rel="noopener">Ver demo</a>
-              <a class="btn small ghost" href="#" target="_blank" rel="noopener">Código</a>
+              <a class="btn small" href="#">Demo</a>
+              <a class="btn small ghost" href="#">Código</a>
             </div>
           </div>
         </article>
@@ -167,123 +144,45 @@
     </div>
   </section>
 
-  <section id="habilidades" class="section">
+  <section id="habilidades" class="section reveal">
     <div class="container">
       <h2>Habilidades</h2>
       <div class="skills">
-        <div class="skill"><span>HTML</span><div class="bar"><i style="width: 95%"></i></div></div>
-        <div class="skill"><span>CSS</span><div class="bar"><i style="width: 90%"></i></div></div>
-        <div class="skill"><span>JavaScript</span><div class="bar"><i style="width: 85%"></i></div></div>
-        <div class="skill"><span>Python</span><div class="bar"><i style="width: 80%"></i></div></div>
-        <div class="skill"><span>Java</span><div class="bar"><i style="width: 70%"></i></div></div>
-        <div class="skill"><span>SQL</span><div class="bar"><i style="width: 75%"></i></div></div>
-        <div class="skill"><span>Power BI</span><div class="bar"><i style="width: 75%"></i></div></div>
+        <div class="skill"><span>HTML</span><div class="bar"><i style="width:95%"></i></div></div>
+        <div class="skill"><span>CSS</span><div class="bar"><i style="width:90%"></i></div></div>
+        <div class="skill"><span>JS</span><div class="bar"><i style="width:85%"></i></div></div>
+        <div class="skill"><span>Python</span><div class="bar"><i style="width:80%"></i></div></div>
+        <div class="skill"><span>Java</span><div class="bar"><i style="width:70%"></i></div></div>
       </div>
     </div>
   </section>
 
-  <section id="contato" class="section">
+  <section id="contato" class="section reveal">
     <div class="container two-col">
       <div>
         <h2>Contato</h2>
-        <p>Curtiu o que viu? Manda uma mensagem:</p>
-        <!-- novalidate desativa as mensagens de “preencha este campo” -->
         <form class="contact-form" id="contactForm" novalidate>
-          <label>Nome
-            <input type="text" id="name" placeholder="Seu nome" required />
-          </label>
-          <label>E-mail
-            <input type="email" id="email" placeholder="seuemail@exemplo.com" required />
-          </label>
-          <label>Mensagem
-            <textarea id="message" rows="5" placeholder="Como posso ajudar?" required></textarea>
-          </label>
+          <label>Nome<input type="text" id="name" placeholder="Seu nome"></label>
+          <label>Email<input type="email" id="email" placeholder="email@exemplo.com"></label>
+          <label>Mensagem<textarea id="message" rows="5" placeholder="Como posso ajudar?"></textarea></label>
           <button class="btn primary" type="submit">Enviar</button>
-          <p class="form-msg" role="status" aria-live="polite"></p>
+          <p class="form-msg"></p>
         </form>
       </div>
       <aside class="card">
         <h3>Redes</h3>
         <ul class="social">
-          <li><a href="https://www.linkedin.com/in/luisfelipesgomes/" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a></li>
-          <li><a href="https://github.com/fhelipesgomes" target="_blank" rel="noopener" aria-label="GitHub">GitHub</a></li>
-          <li><a href="mailto:fhelipesgomes@gmail.com" aria-label="E-mail">E-mail</a></li>
+          <li><a href="https://github.com/fhelipesgomes">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/luisfelipesgomes/">LinkedIn</a></li>
         </ul>
       </aside>
     </div>
   </section>
 
   <footer class="site-footer">
-    <div class="container">
-      <p>© <span id="year"></span> Fhelipe S Gomes — Todos os direitos reservados.</p>
-    </div>
+    <div class="container"><p>© <span id="year"></span> Fhelipe S Gomes. Todos os direitos reservados.</p></div>
   </footer>
 
-  <!-- mantém os scripts originais -->
-  <script src="script.js"></script>
-
-  <!-- script de envio para e-mail (desktop) ou WhatsApp (celular) -->
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    document.getElementById("contactForm").addEventListener("submit", function(e) {
-      e.preventDefault();
-      const name = document.getElementById("name").value || "(sem nome)";
-      const email = document.getElementById("email").value || "(sem e-mail)";
-      const message = document.getElementById("message").value || "(sem mensagem)";
-
-      const subject = encodeURIComponent("Contato via Portfólio — " + name);
-      const body = encodeURIComponent(`Nome: ${name}\nE-mail: ${email}\n\nMensagem:\n${message}`);
-
-      const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-
-      if (isMobile) {
-        const text = encodeURIComponent(`Olá! Me chamo ${name}. Meu e-mail é ${email}.\n\n${message}`);
-        window.open(`https://wa.me/5585982351950?text=${text}`, "_blank");
-      } else {
-        window.location.href = `mailto:fhelipesgomes@gmail.com?subject=${subject}&body=${body}`;
-      }
-    });
-  </script>
+<script src="script.js"></script>
 </body>
 </html>
-<!-- mantém seus scripts originais -->
-<script src="script.js"></script>
-
-<!-- força o envio: e-mail (desktop) ou WhatsApp (mobile) -->
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-
-  (function () {
-    const form = document.getElementById("contactForm");
-    const nameEl = document.getElementById("name");
-    const emailEl = document.getElementById("email");
-    const msgEl = document.getElementById("message");
-    const feedback = form.querySelector(".form-msg");
-
-    // desativa validação nativa e bloqueia outros listeners do script.js
-    form.setAttribute("novalidate", "");
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-      e.stopImmediatePropagation(); // impede outros handlers de barrar
-
-      const name = (nameEl.value || "(sem nome)").trim();
-      const email = (emailEl.value || "(sem e-mail)").trim();
-      const message = (msgEl.value || "(sem mensagem)").trim();
-
-      // limpa aviso "Preencha todos os campos."
-      if (feedback) feedback.textContent = "";
-
-      const subject = encodeURIComponent("Contato via Portfólio — " + name);
-      const body = encodeURIComponent(`Nome: ${name}\nE-mail: ${email}\n\nMensagem:\n${message}`);
-
-      const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-      if (isMobile) {
-        const text = encodeURIComponent(`Olá! Me chamo ${name}. Meu e-mail é ${email}.\n\n${message}`);
-        window.open(`https://wa.me/5585982351950?text=${text}`, "_blank");
-      } else {
-        window.location.href = `mailto:fhelipesgomes@gmail.com?subject=${subject}&body=${body}`;
-      }
-    }, true); // <-- modo captura: roda ANTES dos outros listeners
-  })();
-</script>
