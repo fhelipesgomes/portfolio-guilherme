@@ -543,3 +543,153 @@ body::-webkit-scrollbar-thumb:hover{background:var(--accent)}
     padding:3rem 0;
   }
 }
+/* === Botão "Disponível para oportunidades" — Ajuste + Animação Neon === */
+#sobre .links {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: flex-start;
+}
+
+#sobre .links .btn.small {
+  position: relative;
+  overflow: hidden;
+  border-color: var(--accent);
+  box-shadow: 0 0 12px rgba(255,205,0,.7);
+  transition: .25s ease;
+}
+
+/* Brilho Neon */
+#sobre .links .btn.small:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 20px rgba(255,205,0,1);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* Animação de luz passando */
+#sobre .links .btn.small::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255,205,0,.4) 50%,
+    transparent 100%
+  );
+  transform: translateX(-100%);
+  transition: .45s;
+}
+
+#sobre .links .btn.small:hover::before {
+  transform: translateX(100%);
+}
+/* === Ajuste Premium para Info Rápida e Redes === */
+#sobre .card,
+#contato .card {
+  padding: 1.6rem !important;         /* mais espaçamento interno */
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;                /* centraliza conteúdo */
+  text-align: center;                 
+  border-radius: 18px;
+
+  /* animação de brilho suave */
+  animation: neonFloat 6s ease-in-out infinite;
+}
+
+/* listas mais bonitas e centralizadas */
+#sobre .card .list,
+#contato .card .social {
+  width: 100%;
+  padding: 0.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  align-items: center;         /* centralização */
+}
+
+#sobre .card .list li,
+#contato .card .social li {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #1d232c;
+  transition: .25s ease;
+  text-align: center;
+}
+
+/* Hover Neon */
+#sobre .card .list li:hover,
+#contato .card .social li:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  box-shadow: 0 0 12px rgba(255,205,0,.7);
+  transform: translateY(-3px);
+}
+
+/* Links das redes com mais estilo */
+#contato .card .social a {
+  color: var(--text);
+  padding: .4rem .6rem;
+  border-radius: 8px;
+  transition: .25s ease;
+}
+
+#contato .card .social a:hover {
+  color: var(--accent);
+  text-shadow: 0 0 12px var(--accent);
+}
+
+/* animação suave de "flutuar" com brilho neon */
+@keyframes neonFloat {
+  0%, 100% {
+    transform: translateY(0);
+    box-shadow: 0 0 18px rgba(255,205,0,.18);
+  }
+  50% {
+    transform: translateY(-4px);
+    box-shadow: 0 0 28px rgba(255,205,0,.45);
+  }
+}
+/* === Nome estilizado no Hero (Luis + Fhelipe neon) === */
+.name-first {
+  color: var(--text);
+  font-weight: 800;
+  font-family: "Space Grotesk", sans-serif;
+  letter-spacing: .5px;
+}
+
+.name-last {
+  color: var(--accent);
+  font-weight: 800;
+  font-family: "Space Grotesk", sans-serif;
+  letter-spacing: .5px;
+  text-shadow: 0 0 12px rgba(255,205,0,.9);
+  animation: neonPulse 3s ease-in-out infinite;
+}
+
+/* Animação suave neon amarelo no sobrenome */
+@keyframes neonPulse {
+  0%, 100% {
+    text-shadow: 
+      0 0 12px rgba(255,205,0,.7),
+      0 0 22px rgba(255,205,0,.4);
+  }
+  50% {
+    text-shadow: 
+      0 0 18px rgba(255,205,0,1),
+      0 0 32px rgba(255,205,0,.75);
+  }
+}
+/* === 2 projetos por linha no mobile === */
+@media(max-width:900px){
+  .grid.projects{
+    grid-template-columns: repeat(12, 1fr) !important;
+  }
+  .project-card{
+    grid-column: span 6 !important; /* metade = 2 por linha */
+  }
+}
